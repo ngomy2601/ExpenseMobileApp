@@ -1,14 +1,17 @@
 package com.example.expensemobileapp;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private SQLiteDatabase database;
+    private Context context;
     public static final String DATABASE_NAME="ExpenseManagement.db";
     public static final int DATABASE_VERSION = 1;
 
@@ -33,6 +36,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public DatabaseHelper( Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this.context = context;
         database = getWritableDatabase();
     }
 
@@ -45,5 +49,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
+    }
+
+    public void addTrip(String name, String destination, String date, String assessment, String description){
+        ContentValues newRowValue = new ContentValues();
+
+
+        newRowValue.put(COLUMN_NAME, name);
+        newRowValue.put(COLUMN_DESTINATION, destination);
+        newRowValue.put(COLUMN_DATE, date);
+        newRowValue.put(COLUMN_ASSESSMENT, assessment);
+        newRowValue.put(COLUMN_DESCRIPTION, description);
+
+        long result = database.insert(TABLE_NAME, null, newRowValue);
+        if(result != -1){
+            Toast.makeText(context, "Added successfully", Toast.LENGTH_LONG).show();
+        }
+
     }
 }

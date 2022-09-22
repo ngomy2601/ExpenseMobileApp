@@ -7,4 +7,8 @@
     <string name="trip_assessment_input">Require Risks Assessment</string>
     <string name="assessment_choice_input">YES/NO</string>
     <string name="add_db_button">Add To Database</string>
+    <string name="invalid_name">Please Enter Valid Name</string>
+    <string name="invalid_destination">Please Enter Valid Destination</string>
+    <string name="invalid_date">Please Enter Valid Date</string>
+    <string name="invalid_choice">Please Enter Valid Choice</string>
 </resources>
