@@ -14,8 +14,14 @@
         android:theme="@style/Theme.ExpenseMobileApp"
         tools:targetApi="31">
         <activity
+            android:name=".AddTripActivity"
+            android:label="Add Trip"
+            android:parentActivityName=".MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:label="Expense Management App">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

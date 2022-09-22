@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">ExpenseMobileApp</string>
+    <string name="app_name">Expense Management App</string>
+    <string name="trip_name_input">Name of the Trip</string>
+    <string name="trip_destination_input">Destination</string>
+    <string name="trip_date_input">Date of the Trip</string>
+    <string name="trip_description_input">Description</string>
+    <string name="trip_assessment_input">Require Risks Assessment</string>
+    <string name="assessment_choice_input">YES/NO</string>
+    <string name="add_db_button">Add To Database</string>
+    <string name="invalid_name">Please Enter Valid Name</string>
+    <string name="invalid_destination">Please Enter Valid Destination</string>
+    <string name="invalid_date">Please Enter Valid Date</string>
+    <string name="invalid_choice">Please Enter Valid Choice</string>
 </resources>
