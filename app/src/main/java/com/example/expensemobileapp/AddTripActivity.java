@@ -56,7 +56,6 @@ public class AddTripActivity extends AppCompatActivity {
         add_db_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //if (awesomeValidation.validate()) {
                 isAllFieldsChecked = CheckAllFields();
 
                 if (isAllFieldsChecked) {

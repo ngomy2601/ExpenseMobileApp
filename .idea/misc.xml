@@ -6,6 +6,7 @@
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.197" />
         <entry key="app/src/main/res/layout/activity_add_trip.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19432983398437503" />
+        <entry key="app/src/main/res/layout/my_row.xml" value="0.25" />
       </map>
     </option>
   </component>
