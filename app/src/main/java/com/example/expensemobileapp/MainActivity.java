@@ -1,18 +1,28 @@
 package com.example.expensemobileapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     FloatingActionButton add_button;
+
+    DatabaseHelper myDB;
+
+    ArrayList<String> _id, name, destination, trip_date, trip_assessment,trip_description;
+    CustomAdapter customAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,5 +38,36 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        myDB = new DatabaseHelper(MainActivity.this);
+
+        _id = new ArrayList<>();
+        name = new ArrayList<>();
+        destination = new ArrayList<>();
+        trip_date = new ArrayList<>();
+        trip_assessment = new ArrayList<>();
+        trip_description = new ArrayList<>();
+
+        storeTripsDataInArray();
+
+        customAdapter = new CustomAdapter(MainActivity.this, _id, name, destination, trip_date, trip_assessment,trip_description);
+        recyclerView.setAdapter(customAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+    }
+
+    void storeTripsDataInArray(){
+        Cursor cursor = myDB.readAllData();
+        if(cursor.getCount() == 0){
+            Toast.makeText(this, "You must add data in database", Toast.LENGTH_SHORT).show();
+        }else{
+            while (cursor.moveToNext()){
+                _id.add(cursor.getString(0));
+                name.add(cursor.getString(1));
+                destination.add(cursor.getString(2));
+                trip_date.add(cursor.getString(3));
+                trip_assessment.add(cursor.getString(4));
+                trip_description.add(cursor.getString(5));
+            }
+        }
     }
 }
