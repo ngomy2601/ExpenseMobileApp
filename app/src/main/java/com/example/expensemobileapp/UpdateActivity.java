@@ -1,17 +1,20 @@
 package com.example.expensemobileapp;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class UpdateActivity extends AppCompatActivity {
 
     EditText trip_name_input, trip_destination_input, trip_date_input, trip_description_input, assessment_choice_input;
-    Button update_db_button;
+    Button update_db_button, delete_db_button;
 
     String _id, name, destination, trip_date, trip_assessment, trip_description;
 
@@ -27,9 +30,16 @@ public class UpdateActivity extends AppCompatActivity {
         trip_description_input = findViewById(R.id.trip_description_input2);
         assessment_choice_input = findViewById(R.id.assessment_choice_input2);
         update_db_button = findViewById(R.id.update_db_button);
-
+        delete_db_button = findViewById(R.id.delete_db_button);
         //Should be here if you want to render data again after updating
         getAndSetIntentData();
+
+        //Set ActionBar title = Trip Name
+        ActionBar ab = getSupportActionBar();
+        if (ab != null) {
+            ab.setTitle(name);
+        }
+
         update_db_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,6 +50,12 @@ public class UpdateActivity extends AppCompatActivity {
                 String description = trip_description_input.getText().toString().trim();
                 String assessment = assessment_choice_input.getText().toString().trim();
                 myDB.updateTripData(_id, name, destination, date, description, assessment);
+            }
+        });
+        delete_db_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                confirmDialog();
             }
         });
         //Should be here if you do not want to render data again after updating
@@ -71,5 +87,26 @@ public class UpdateActivity extends AppCompatActivity {
             Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    void confirmDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Delete " + name + " ?");
+        builder.setMessage("Are you sure ?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                DatabaseHelper myDB = new DatabaseHelper(UpdateActivity.this);
+                myDB.deleteOneRow(_id);
+                finish();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
     }
 }
