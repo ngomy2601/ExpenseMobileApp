@@ -81,4 +81,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return cursor;
     }
+
+    void updateTripData (String row_id, String name, String destination, String date, String assessment, String description) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues newRowValue = new ContentValues();
+
+
+        newRowValue.put(COLUMN_NAME, name);
+        newRowValue.put(COLUMN_DESTINATION, destination);
+        newRowValue.put(COLUMN_DATE, date);
+        newRowValue.put(COLUMN_ASSESSMENT, assessment);
+        newRowValue.put(COLUMN_DESCRIPTION, description);
+
+        long result = db.update(TABLE_NAME, newRowValue, "_id=?", new String[]{row_id});
+
+        if(result == -1){
+            Toast.makeText(context, "Failed to update!", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, "Successfully updated!", Toast.LENGTH_SHORT).show();
+        }
+    }
 }

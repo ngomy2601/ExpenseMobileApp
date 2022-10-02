@@ -1,5 +1,6 @@
 package com.example.expensemobileapp;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -50,9 +51,17 @@ public class MainActivity extends AppCompatActivity {
 
         storeTripsDataInArray();
 
-        customAdapter = new CustomAdapter(MainActivity.this, _id, name, destination, trip_date, trip_assessment,trip_description);
+        customAdapter = new CustomAdapter(MainActivity.this,this, _id, name, destination, trip_date, trip_assessment,trip_description);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1){
+            recreate();
+        }
     }
 
     void storeTripsDataInArray(){

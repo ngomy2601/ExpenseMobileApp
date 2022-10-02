@@ -14,10 +14,13 @@
         android:theme="@style/Theme.ExpenseMobileApp"
         tools:targetApi="31">
         <activity
-            android:name=".AddTripActivity"
-            android:label="Add Trip"
-            android:parentActivityName=".MainActivity"
+            android:name=".UpdateActivity"
             android:exported="false" />
+        <activity
+            android:name=".AddTripActivity"
+            android:exported="false"
+            android:label="Add Trip"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
