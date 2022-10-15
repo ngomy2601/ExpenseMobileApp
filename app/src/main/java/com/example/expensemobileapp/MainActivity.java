@@ -8,12 +8,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,11 +34,13 @@ public class MainActivity extends AppCompatActivity {
     CustomAdapter customAdapter;
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         recyclerView = findViewById(R.id.recyclerView);
+
         add_button = findViewById(R.id.add_button);
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +66,9 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
     }
 
+
     @Override
+
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
@@ -97,6 +103,25 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.delete_all) {
             confirmDialog();
+        }
+
+        if (item.getItemId() == R.id.search) {
+
+            SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
+
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String s) {
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String s) {
+                    
+
+                    return true;
+                }
+            });
         }
         return super.onOptionsItemSelected(item);
     }
