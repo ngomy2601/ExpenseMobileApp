@@ -1,6 +1,7 @@
 package com.example.expensemobileapp;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class UpdateActivity extends AppCompatActivity {
 
     EditText trip_name_input, trip_destination_input, trip_date_input, trip_description_input, assessment_choice_input;
-    Button update_db_button, delete_db_button;
+    Button update_db_button, delete_db_button, expense_button;
 
     String _id, name, destination, trip_date, trip_assessment, trip_description;
 
@@ -31,6 +32,7 @@ public class UpdateActivity extends AppCompatActivity {
         assessment_choice_input = findViewById(R.id.assessment_choice_input2);
         update_db_button = findViewById(R.id.update_db_button);
         delete_db_button = findViewById(R.id.delete_db_button);
+        expense_button = findViewById(R.id.details_button);
         //Should be here if you want to render data again after updating
         getAndSetIntentData();
 
@@ -52,6 +54,7 @@ public class UpdateActivity extends AppCompatActivity {
                 myDB.updateTripData(_id, name, destination, date, description, assessment);
             }
         });
+
         delete_db_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,6 +62,15 @@ public class UpdateActivity extends AppCompatActivity {
             }
         });
         //Should be here if you do not want to render data again after updating
+
+        expense_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UpdateActivity.this, ListExpenses.class);
+                intent.putExtra("tripId", _id);
+                startActivity(intent);
+            }
+        });
     }
 
     void getAndSetIntentData() {

@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ExpenseMainActivity">
+    tools:context=".ListExpenses">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_expense_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="68dp"
         android:backgroundTint="@color/red_600"
         android:clickable="true"
         android:focusable="true"
@@ -21,7 +21,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView1"
+        android:id="@+id/recyclerView2"
         android:layout_width="409dp"
         android:layout_height="729dp"
         app:layout_constraintBottom_toBottomOf="parent"

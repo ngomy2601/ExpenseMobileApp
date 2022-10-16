@@ -7,6 +7,8 @@
     <string name="trip_assessment_input">Require Risks Assessment</string>
     <string name="assessment_choice_input">YES/NO</string>
     <string name="add_db_button">Add To Database</string>
+    <string name="add_expense_db_button">Add Expense Details</string>
+    <string name="details_button">View All Expenses</string>
     <string name="update_db_button">Update To Database</string>
     <string name="delete_db_button">Delete</string>
     <string name="delete_all_db_button">Delete All</string>
@@ -15,4 +17,9 @@
     <string name="invalid_destination">Please Enter Valid Destination</string>
     <string name="invalid_date">Please Enter Valid Date</string>
     <string name="invalid_choice">Please Enter Valid Choice</string>
+    <string name="datetime">Date: </string>
+    <string name="amount">Amount: </string>
+    <string name="destination">Destination: </string>
+    <string name="description">Description: </string>
+    <string name="assessment">Require Risks Assessment*: </string>
 </resources>

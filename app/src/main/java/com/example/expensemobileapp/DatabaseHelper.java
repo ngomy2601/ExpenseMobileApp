@@ -158,5 +158,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    Cursor readAllExpenseData() {
+        String query = "SELECT * FROM " + EXPENSE_TABLE_NAME;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+
+        if (db != null) {
+            cursor = db.rawQuery(query, null);
+        }
+
+        return cursor;
+    }
+
     //END - CRUD Expenses
 }

@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     FloatingActionButton add_button;
 
+
     DatabaseHelper myDB;
 
     ArrayList<String> _id, name, destination, trip_date, trip_assessment, trip_description;
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
 
         add_button = findViewById(R.id.add_button);
+
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -117,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public boolean onQueryTextChange(String s) {
-                    
+
 
                     return true;
                 }
