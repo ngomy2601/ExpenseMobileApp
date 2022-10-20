@@ -140,6 +140,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DELETE FROM " + TABLE_NAME);
     }
 
+    Cursor searchData(String keyword) {
+        String query = "SELECT * FROM trips " + "WHERE name LIKE '%" + keyword + "%'";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+
+        if (db != null) {
+            cursor = db.rawQuery(query, null);
+        }
+
+        return cursor;
+    }
+
     //END - CRUD Trips
 
     //START - CRUD Expenses
