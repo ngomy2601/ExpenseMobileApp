@@ -26,8 +26,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    FloatingActionButton add_button;
-
+    FloatingActionButton add_button, search_button;
 
     DatabaseHelper myDB;
 
@@ -42,7 +41,9 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
 
+
         add_button = findViewById(R.id.add_button);
+        search_button = findViewById(R.id.search_button);
 
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +53,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        search_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SearchTripActivity.class);
+                startActivity(intent);
+            }
+        });
         myDB = new DatabaseHelper(MainActivity.this);
 
         _id = new ArrayList<>();
@@ -93,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+    
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
