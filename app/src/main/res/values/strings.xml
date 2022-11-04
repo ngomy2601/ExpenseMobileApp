@@ -24,7 +24,9 @@
     <string name="invalid_choice">Please Enter Valid Choice</string>
     <string name="spinnerLabel">Choose an expense type</string>
     <string name="datetime">Date: </string>
+    <string name="datetimeHint">Date </string>
     <string name="amount">Amount: </string>
+    <string name="amountHint">Amount </string>
     <string name="destination">Destination: </string>
     <string name="description">Description: </string>
     <string name="assessment">Require Risks Assessment*: </string>
