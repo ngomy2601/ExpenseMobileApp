@@ -15,21 +15,25 @@
         tools:targetApi="31">
         <activity
             android:name=".SearchTripActivity"
+            android:label="@string/search_screen_name"
             android:exported="false" />
         <activity
             android:name=".ListExpenses"
+            android:label="@string/listExpense_screen_name"
             android:exported="false" />
         <activity
             android:name=".AddDetailsActivity"
+            android:label="@string/addExpense_screen_name"
             android:exported="false" />
         <activity
             android:name=".UpdateActivity"
             android:exported="false"
+            android:label="@string/updateTrip_screen_name"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".AddTripActivity"
             android:exported="false"
-            android:label="Add Trip"
+            android:label="@string/addTrip_screen_name"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"

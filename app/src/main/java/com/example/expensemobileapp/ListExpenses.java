@@ -48,15 +48,15 @@ public class ListExpenses extends AppCompatActivity {
         amount = new ArrayList<>();
         date = new ArrayList<>();
 
-        storeExpensesDataInArray();
+        storeExpensesDataInArray(tripId);
 
         expenseAdapter = new ExpenseAdapter(ListExpenses.this, this, _id, type, amount, date);
         recyclerView2.setAdapter(expenseAdapter);
         recyclerView2.setLayoutManager(new LinearLayoutManager(ListExpenses.this));
     }
 
-    void storeExpensesDataInArray() {
-        Cursor cursor = myDB.readAllExpenseData();
+    void storeExpensesDataInArray(String id) {
+        Cursor cursor = myDB.readAllExpenseData(id);
         if (cursor.getCount() == 0) {
             Toast.makeText(this, "You must add data in database", Toast.LENGTH_SHORT).show();
         } else {

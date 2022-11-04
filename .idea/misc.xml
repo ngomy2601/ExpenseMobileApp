@@ -6,7 +6,8 @@
         <entry key="../../../../../layout/custom_preview.xml" value="0.17176258992805754" />
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.197" />
         <entry key="app/src/main/res/drawable/ic_baseline.xml" value="0.222" />
-        <entry key="app/src/main/res/layout/activity_add_details.xml" value="0.21875" />
+        <entry key="app/src/main/res/drawable/ic_search.xml" value="0.265" />
+        <entry key="app/src/main/res/layout/activity_add_details.xml" value="0.3412948608398438" />
         <entry key="app/src/main/res/layout/activity_add_expense.xml" value="0.2109375" />
         <entry key="app/src/main/res/layout/activity_add_trip.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/activity_expense_main.xml" value="0.2109375" />

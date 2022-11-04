@@ -172,8 +172,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    Cursor readAllExpenseData() {
-        String query = "SELECT * FROM " + EXPENSE_TABLE_NAME;
+    Cursor readAllExpenseData(String id) {
+        String query = "SELECT * FROM " + EXPENSE_TABLE_NAME + " WHERE " + COLUMN_TRIP_ID + " LIKE '" + id + "'";
 
         SQLiteDatabase db = this.getReadableDatabase();
 
